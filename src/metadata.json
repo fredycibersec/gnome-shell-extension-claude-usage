@@ -1,7 +1,7 @@
 {
   "uuid": "claude-usage@fredycibersec",
   "name": "Claude Usage",
-  "description": "Unofficial indicator for Claude subscription limits (5-hour session, weekly, per-model weekly, extra usage) and the API-equivalent cost of your Claude Code usage, broken down by day, model and project.\n\nRequires Claude Code to be signed in (it reads the OAuth token Claude Code stores in ~/.claude/.credentials.json, read-only, never refreshed) and python3. Usage data comes from Claude Code's local logs. The menu opens on hover and stays open on click.\n\nNot affiliated with or endorsed by Anthropic.",
+  "description": "Unofficial indicator for Claude subscription limits (5-hour session, weekly, per-model weekly, extra usage) and the API-equivalent cost of your Claude Code usage, broken down by day, model and project.\n\nRequires Claude Code to be signed in (it reads the OAuth token Claude Code stores in ~/.claude/.credentials.json, read-only, never refreshed) and python3. Usage data comes from Claude Code's local logs. Network access: api.anthropic.com (usage limits) and, once a day, the project's GitHub repository (raw.githubusercontent.com) for an updated price table (JSON data only; can be disabled in the preferences). The menu opens on hover and stays open on click.\n\nNot affiliated with or endorsed by Anthropic.",
   "shell-version": ["50"],
   "version": 1,
   "url": "https://github.com/fredycibersec/gnome-shell-extension-claude-usage",
