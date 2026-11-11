@@ -1,3 +1,7 @@
+/* Same side padding as .system-status-icon, so the hover highlight matches other tray icons
+   even when the panel button hpadding is reduced (themes / spacing extensions). */
+.cu-panel-box { padding: 0 6px; }
+
 .cu-panel-label {
     font-feature-settings: "tnum";
     padding-left: 4px;

@@ -351,7 +351,7 @@ class ClaudeUsageIndicator extends PanelMenu.Button {
         this._openedByHover = false;
         this._outsideSince = 0;
 
-        const box = hbox({style_class: 'panel-status-indicators-box'});
+        const box = hbox({style_class: 'panel-status-indicators-box cu-panel-box'});
         this._meter = new PanelMeter();
         this._label = label('…', 'cu-panel-label');
         box.add_child(this._meter);
