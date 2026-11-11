@@ -1,0 +1,4 @@
+dist/
+src/locale/
+src/schemas/gschemas.compiled
+__pycache__/

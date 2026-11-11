@@ -1,0 +1,74 @@
+.cu-panel-label {
+    font-feature-settings: "tnum";
+    padding-left: 4px;
+}
+.cu-panel-label.cu-warn { color: #f6d32d; }
+.cu-panel-label.cu-crit { color: #ff7b63; }
+.cu-panel-label.cu-stale { color: rgba(255, 255, 255, 0.55); }
+
+.cu-popup {
+    min-width: 430px;
+    max-width: 430px;
+    padding: 2px 6px;
+    spacing: 4px;
+}
+.cu-popup-item { padding: 0; }
+.cu-popup-item:hover, .cu-popup-item:focus { background-color: transparent; }
+
+.cu-header { spacing: 8px; padding-bottom: 2px; }
+.cu-title { font-weight: 800; font-size: 13pt; }
+.cu-badge {
+    font-size: 8pt;
+    font-weight: bold;
+    padding: 1px 7px;
+    border-radius: 9px;
+    background-color: rgba(217, 119, 87, 0.25);
+    color: #f0a585;
+}
+.cu-muted { color: rgba(255, 255, 255, 0.55); font-size: 9pt; }
+.cu-section {
+    font-size: 8.5pt;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.6);
+    padding-top: 4px;
+}
+.cu-row { spacing: 8px; }
+.cu-row-label { font-weight: bold; }
+.cu-num { font-feature-settings: "tnum"; }
+.cu-pct { font-weight: bold; font-feature-settings: "tnum"; }
+.cu-pct.cu-warn { color: #f6d32d; }
+.cu-pct.cu-crit { color: #ff7b63; }
+
+.cu-tiles { spacing: 6px; }
+.cu-tile {
+    padding: 6px 8px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.06);
+    spacing: 1px;
+}
+.cu-tile-value { font-weight: 800; font-size: 12.5pt; font-feature-settings: "tnum"; }
+.cu-tile-label { font-size: 8.5pt; color: rgba(255, 255, 255, 0.6); }
+.cu-tile-sub { font-size: 8pt; color: rgba(255, 255, 255, 0.5); font-feature-settings: "tnum"; }
+
+.cu-chart-caption { font-size: 9pt; font-feature-settings: "tnum"; min-height: 16px; }
+.cu-legend { spacing: 10px; font-size: 8.5pt; }
+.cu-swatch { width: 9px; height: 9px; border-radius: 2px; }
+
+.cu-error {
+    font-size: 9pt;
+    color: #f6d32d;
+    padding: 4px 0;
+}
+.cu-footer { spacing: 6px; padding-top: 4px; }
+.cu-button {
+    font-size: 9pt;
+    padding: 3px 10px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+.cu-button:hover { background-color: rgba(255, 255, 255, 0.16); }
+
+.cu-models { spacing: 1px; padding-left: 10px; padding-bottom: 2px; }
+.cu-model-name { font-size: 9pt; }
+.cu-model-pct { font-size: 9pt; min-width: 34px; text-align: right; }
+.cu-logo { color: rgba(255, 255, 255, 0.92); }

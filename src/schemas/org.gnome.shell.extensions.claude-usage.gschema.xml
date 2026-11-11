@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.claude-usage" path="/org/gnome/shell/extensions/claude-usage/">
+    <key name="show-percent" type="b">
+      <default>true</default>
+      <summary>Show the percentage in the top bar</summary>
+      <description>Show the 5-hour session usage percentage next to the panel meter.</description>
+    </key>
+  </schema>
+</schemalist>

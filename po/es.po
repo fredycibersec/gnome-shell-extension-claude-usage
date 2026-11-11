@@ -1,0 +1,325 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: claude-usage\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#: src/extension.js:37
+msgid "Input"
+msgstr "Entrada"
+
+#: src/extension.js:37
+msgid "Cache write"
+msgstr "Escritura caché"
+
+#: src/extension.js:37
+msgid "Cache read"
+msgstr "Lectura caché"
+
+#: src/extension.js:37
+msgid "Output"
+msgstr "Salida"
+
+#: src/extension.js:96
+msgid "resetting…"
+msgstr "reiniciando…"
+
+#: src/extension.js:102
+msgid "resets in %s"
+msgstr "reinicia en %s"
+
+#: src/extension.js:116
+msgid "never"
+msgstr "nunca"
+
+#: src/extension.js:119
+msgid "just now"
+msgstr "hace un momento"
+
+#: src/extension.js:121
+msgid "%d min ago"
+msgstr "hace %d min"
+
+#: src/extension.js:122
+msgid "%d h ago"
+msgstr "hace %d h"
+
+#: src/extension.js:487
+msgid "Could not start the collector: %s"
+msgstr "No se pudo lanzar el recolector: %s"
+
+#: src/extension.js:503
+msgid "Collector error: %s"
+msgstr "Error del recolector: %s"
+
+#: src/extension.js:507
+msgid "exit code %d"
+msgstr "código %d"
+
+#: src/extension.js:508
+msgid "The collector failed: %s"
+msgstr "El recolector falló: %s"
+
+#: src/extension.js:516
+msgid "Invalid collector output: %s"
+msgstr "Salida no válida del recolector: %s"
+
+#: src/extension.js:579
+msgid "Updated %s"
+msgstr "Actualizado %s"
+
+#: src/extension.js:579
+msgid "Loading…"
+msgstr "Cargando…"
+
+#: src/extension.js:598
+msgid "%s — showing the last data (%s)"
+msgstr "%s — se muestran los últimos datos (%s)"
+
+#: src/extension.js:612
+msgid "PLAN LIMITS"
+msgstr "LÍMITES DEL PLAN"
+
+#: src/extension.js:620
+msgid "Extra usage (month)"
+msgstr "Uso extra (mes)"
+
+#: src/extension.js:622
+msgid "spend limit reached"
+msgstr "límite de gasto alcanzado"
+
+#: src/extension.js:622
+msgid "real spend beyond the plan"
+msgstr "gasto real por encima del plan"
+
+#: src/extension.js:631
+msgid "USAGE · API-EQUIVALENT COST (USD)"
+msgstr "CONSUMO · EQUIVALENTE A PRECIOS DE LA API (USD)"
+
+#: src/extension.js:634 src/helper/claude-usage.py:540
+msgid "Today"
+msgstr "Hoy"
+
+#: src/extension.js:634 src/helper/claude-usage.py:541
+msgid "7 days"
+msgstr "7 días"
+
+#: src/extension.js:634 src/helper/claude-usage.py:541
+msgid "30 days"
+msgstr "30 días"
+
+#: src/extension.js:634 src/helper/claude-usage.py:541
+msgid "This month"
+msgstr "Este mes"
+
+#: src/extension.js:638
+msgid "%s · %d req."
+msgstr "%s · %d pet."
+
+#: src/extension.js:645
+msgid "Last hour %s · last 5 h %s · yesterday %s"
+msgstr "Última hora %s · últimas 5 h %s · ayer %s"
+
+#: src/extension.js:653
+msgid "Daily cost, 30 days · max. %s (%s)"
+msgstr "Coste diario, 30 días · máx. %s (%s)"
+
+#: src/extension.js:665
+msgid "%s · %s · %s tokens · %d requests"
+msgstr "%s · %s · %s tokens · %d peticiones"
+
+#: src/extension.js:671
+msgid "today"
+msgstr "hoy"
+
+#: src/extension.js:679
+msgid "Today by hour · %s"
+msgstr "Hoy por horas · %s"
+
+#: src/extension.js:700
+msgid "TOKENS · 30 DAYS · %s"
+msgstr "TOKENS · 30 DÍAS · %s"
+
+#: src/extension.js:716
+msgid "BY MODEL · 30 DAYS"
+msgstr "POR MODELO · 30 DÍAS"
+
+#: src/extension.js:717
+msgid "BY PROJECT · 30 DAYS"
+msgstr "POR PROYECTO · 30 DÍAS"
+
+#: src/extension.js:719
+msgid "No known price: %s"
+msgstr "Sin precio conocido: %s"
+
+#: src/extension.js:723
+msgid "Total recorded %s · %s tokens"
+msgstr "Total registrado %s · %s tokens"
+
+#: src/extension.js:725
+msgid "Usage on claude.ai"
+msgstr "Uso en claude.ai"
+
+#: src/extension.js:750
+msgid "%d pts ahead of pace"
+msgstr "%d pts por encima del ritmo"
+
+#: src/extension.js:750
+msgid "%d pts below pace"
+msgstr "%d pts por debajo del ritmo"
+
+#: src/extension.js:762
+msgid "No usage in this window"
+msgstr "Sin uso en esta ventana"
+
+#: src/extension.js:774
+msgid "%s · %s · %d req."
+msgstr "%s · %s · %d pet."
+
+#: src/helper/claude-usage.py:332
+msgid "No Claude Code credentials found (sign in with `claude`)"
+msgstr "No hay credenciales de Claude Code (inicia sesión con `claude`)"
+
+#: src/helper/claude-usage.py:348
+msgid "The Claude Code token has expired: open `claude` to renew it"
+msgstr "El token de Claude Code ha caducado: abre `claude` para renovarlo"
+
+#: src/helper/claude-usage.py:367
+msgid "Token rejected (401): open `claude` to renew the session"
+msgstr "Token rechazado (401): abre `claude` para renovar la sesión"
+
+#: src/helper/claude-usage.py:368
+msgid "Not allowed to query usage (403)"
+msgstr "Sin permiso para consultar el uso (403)"
+
+#: src/helper/claude-usage.py:369
+msgid "Too many requests (429): will retry later"
+msgstr "Demasiadas consultas (429): se reintentará más tarde"
+
+#: src/helper/claude-usage.py:370
+msgid "HTTP error {code} querying usage"
+msgstr "Error HTTP {code} consultando el uso"
+
+#: src/helper/claude-usage.py:372
+msgid "Cannot reach api.anthropic.com ({reason})"
+msgstr "Sin conexión con api.anthropic.com ({reason})"
+
+#: src/helper/claude-usage.py:374
+msgid "Invalid response from the usage API"
+msgstr "Respuesta no válida de la API de uso"
+
+#: src/helper/claude-usage.py:393
+msgid "Weekly {model}"
+msgstr "Semanal {model}"
+
+#: src/helper/claude-usage.py:394
+msgid "Session (5 h)"
+msgstr "Sesión (5 h)"
+
+#: src/helper/claude-usage.py:395 src/helper/claude-usage.py:397
+msgid "Weekly"
+msgstr "Semanal"
+
+#: src/helper/claude-usage.py:474
+msgid "API query disabled"
+msgstr "consulta a la API desactivada"
+
+#: src/helper/claude-usage.py:490
+msgid "Error reading the local logs: {error}"
+msgstr "Error leyendo los registros locales: {error}"
+
+#: src/helper/claude-usage.py:510
+msgid "now"
+msgstr "ya"
+
+#: src/helper/claude-usage.py:521
+msgid "Claude — {plan} plan"
+msgstr "Claude — plan {plan}"
+
+#: src/helper/claude-usage.py:523
+msgid "  (saved data)"
+msgstr "  (datos guardados)"
+
+#: src/helper/claude-usage.py:526
+msgid "resets in {when}"
+msgstr "reinicia en {when}"
+
+#: src/helper/claude-usage.py:530
+msgid "req."
+msgstr "pet."
+
+#: src/helper/claude-usage.py:532
+msgid "no usage in this window"
+msgstr "sin uso en esta ventana"
+
+#: src/helper/claude-usage.py:535
+msgid "Extra usage"
+msgstr "Uso extra"
+
+#: src/helper/claude-usage.py:539
+msgid "Local usage (API-equivalent cost, USD)"
+msgstr "Consumo local (coste equivalente a precios de la API, USD)"
+
+#: src/helper/claude-usage.py:540
+msgid "Last hour"
+msgstr "Última hora"
+
+#: src/helper/claude-usage.py:540
+msgid "Yesterday"
+msgstr "Ayer"
+
+#: src/helper/claude-usage.py:544
+msgid "requests"
+msgstr "peticiones"
+
+#: src/helper/claude-usage.py:546
+msgid "By model (30 days): "
+msgstr "Por modelo (30 días): "
+
+#: src/helper/claude-usage.py:549
+msgid "Models with no known price: "
+msgstr "Modelos sin precio conocido: "
+
+#: src/helper/claude-usage.py:555
+msgid "Claude usage and spend (for the GNOME top bar)"
+msgstr "Uso y gasto de Claude (para la barra de GNOME)"
+
+#: src/helper/claude-usage.py:556
+msgid "JSON output (default when not a terminal)"
+msgstr "salida JSON (por defecto si no es una terminal)"
+
+#: src/helper/claude-usage.py:557
+msgid "human-readable summary"
+msgstr "resumen legible"
+
+#: src/helper/claude-usage.py:559
+msgid "seconds to reuse the last API query (default 120)"
+msgstr "segundos que se reutiliza la última consulta a la API (defecto 120)"
+
+#: src/helper/claude-usage.py:560
+msgid "do not query the API, local logs only"
+msgstr "no consultar la API, solo registros locales"
+
+#: src/helper/claude-usage.py:561
+msgid "re-read all logs"
+msgstr "volver a leer todos los registros"
+
+#: src/prefs.js:11
+msgid "General"
+msgstr "General"
+
+#: src/prefs.js:13
+msgid "Top bar"
+msgstr "Barra superior"
+
+#: src/prefs.js:14
+msgid "What the panel indicator shows"
+msgstr "Qué se muestra en el indicador del panel"
+
+#: src/prefs.js:18
+msgid "Percentage"
+msgstr "Porcentaje"
+
+#: src/prefs.js:19
+msgid "5-hour session usage (or today’s cost when plan data is unavailable)"
+msgstr "Uso de la sesión de 5 h (o el gasto de hoy si no hay datos del plan)"
