@@ -480,7 +480,10 @@ class ClaudeUsageIndicator extends PanelMenu.Button {
         const helper = GLib.build_filenamev([this._ext.path, 'helper', 'claude-usage.py']);
         let proc;
         try {
-            proc = Gio.Subprocess.new(['python3', '-I', helper, '--json', '--max-age', String(maxAge)],
+            const argv = ['python3', '-I', helper, '--json', '--max-age', String(maxAge)];
+            if (!this._settings.get_boolean('update-prices'))
+                argv.push('--no-remote-pricing');
+            proc = Gio.Subprocess.new(argv,
                 Gio.SubprocessFlags.STDOUT_PIPE | Gio.SubprocessFlags.STDERR_PIPE);
         } catch (e) {
             this._running = false;
@@ -717,6 +720,9 @@ class ClaudeUsageIndicator extends PanelMenu.Button {
         this._breakdown(_('BY PROJECT · 30 DAYS'), loc.projects.slice(0, 4).map(m => [m.name, m.cost, totalTokens(m)]));
         if (loc.unpriced_models?.length)
             this._content.add_child(label(_('No known price: %s').format(loc.unpriced_models.join(', ')), 'cu-muted'));
+
+        if (d.pricing?.updated)
+            this._content.add_child(label(_('API price table of %s').format(d.pricing.updated), 'cu-muted'));
 
         // Pie
         const footer = hbox({style_class: 'cu-footer'});

@@ -44,265 +44,273 @@ msgstr "hace %d min"
 msgid "%d h ago"
 msgstr "hace %d h"
 
-#: src/extension.js:487
+#: src/extension.js:490
 msgid "Could not start the collector: %s"
 msgstr "No se pudo lanzar el recolector: %s"
 
-#: src/extension.js:503
+#: src/extension.js:506
 msgid "Collector error: %s"
 msgstr "Error del recolector: %s"
 
-#: src/extension.js:507
+#: src/extension.js:510
 msgid "exit code %d"
 msgstr "código %d"
 
-#: src/extension.js:508
+#: src/extension.js:511
 msgid "The collector failed: %s"
 msgstr "El recolector falló: %s"
 
-#: src/extension.js:516
+#: src/extension.js:519
 msgid "Invalid collector output: %s"
 msgstr "Salida no válida del recolector: %s"
 
-#: src/extension.js:579
+#: src/extension.js:582
 msgid "Updated %s"
 msgstr "Actualizado %s"
 
-#: src/extension.js:579
+#: src/extension.js:582
 msgid "Loading…"
 msgstr "Cargando…"
 
-#: src/extension.js:598
+#: src/extension.js:601
 msgid "%s — showing the last data (%s)"
 msgstr "%s — se muestran los últimos datos (%s)"
 
-#: src/extension.js:612
+#: src/extension.js:615
 msgid "PLAN LIMITS"
 msgstr "LÍMITES DEL PLAN"
 
-#: src/extension.js:620
+#: src/extension.js:623
 msgid "Extra usage (month)"
 msgstr "Uso extra (mes)"
 
-#: src/extension.js:622
+#: src/extension.js:625
 msgid "spend limit reached"
 msgstr "límite de gasto alcanzado"
 
-#: src/extension.js:622
+#: src/extension.js:625
 msgid "real spend beyond the plan"
 msgstr "gasto real por encima del plan"
 
-#: src/extension.js:631
+#: src/extension.js:634
 msgid "USAGE · API-EQUIVALENT COST (USD)"
 msgstr "CONSUMO · EQUIVALENTE A PRECIOS DE LA API (USD)"
 
-#: src/extension.js:634 src/helper/claude-usage.py:540
+#: src/extension.js:637 src/helper/claude-usage.py:564
 msgid "Today"
 msgstr "Hoy"
 
-#: src/extension.js:634 src/helper/claude-usage.py:541
+#: src/extension.js:637 src/helper/claude-usage.py:565
 msgid "7 days"
 msgstr "7 días"
 
-#: src/extension.js:634 src/helper/claude-usage.py:541
+#: src/extension.js:637 src/helper/claude-usage.py:565
 msgid "30 days"
 msgstr "30 días"
 
-#: src/extension.js:634 src/helper/claude-usage.py:541
+#: src/extension.js:637 src/helper/claude-usage.py:565
 msgid "This month"
 msgstr "Este mes"
 
-#: src/extension.js:638
+#: src/extension.js:641
 msgid "%s · %d req."
 msgstr "%s · %d pet."
 
-#: src/extension.js:645
+#: src/extension.js:648
 msgid "Last hour %s · last 5 h %s · yesterday %s"
 msgstr "Última hora %s · últimas 5 h %s · ayer %s"
 
-#: src/extension.js:653
+#: src/extension.js:656
 msgid "Daily cost, 30 days · max. %s (%s)"
 msgstr "Coste diario, 30 días · máx. %s (%s)"
 
-#: src/extension.js:665
+#: src/extension.js:668
 msgid "%s · %s · %s tokens · %d requests"
 msgstr "%s · %s · %s tokens · %d peticiones"
 
-#: src/extension.js:671
+#: src/extension.js:674
 msgid "today"
 msgstr "hoy"
 
-#: src/extension.js:679
+#: src/extension.js:682
 msgid "Today by hour · %s"
 msgstr "Hoy por horas · %s"
 
-#: src/extension.js:700
+#: src/extension.js:703
 msgid "TOKENS · 30 DAYS · %s"
 msgstr "TOKENS · 30 DÍAS · %s"
 
-#: src/extension.js:716
+#: src/extension.js:719
 msgid "BY MODEL · 30 DAYS"
 msgstr "POR MODELO · 30 DÍAS"
 
-#: src/extension.js:717
+#: src/extension.js:720
 msgid "BY PROJECT · 30 DAYS"
 msgstr "POR PROYECTO · 30 DÍAS"
 
-#: src/extension.js:719
+#: src/extension.js:722
 msgid "No known price: %s"
 msgstr "Sin precio conocido: %s"
 
-#: src/extension.js:723
+#: src/extension.js:725
+msgid "API price table of %s"
+msgstr "Tabla de precios de la API del %s"
+
+#: src/extension.js:729
 msgid "Total recorded %s · %s tokens"
 msgstr "Total registrado %s · %s tokens"
 
-#: src/extension.js:725
+#: src/extension.js:731
 msgid "Usage on claude.ai"
 msgstr "Uso en claude.ai"
 
-#: src/extension.js:750
+#: src/extension.js:756
 msgid "%d pts ahead of pace"
 msgstr "%d pts por encima del ritmo"
 
-#: src/extension.js:750
+#: src/extension.js:756
 msgid "%d pts below pace"
 msgstr "%d pts por debajo del ritmo"
 
-#: src/extension.js:762
+#: src/extension.js:768
 msgid "No usage in this window"
 msgstr "Sin uso en esta ventana"
 
-#: src/extension.js:774
+#: src/extension.js:780
 msgid "%s · %s · %d req."
 msgstr "%s · %s · %d pet."
 
-#: src/helper/claude-usage.py:332
+#: src/helper/claude-usage.py:353
 msgid "No Claude Code credentials found (sign in with `claude`)"
 msgstr "No hay credenciales de Claude Code (inicia sesión con `claude`)"
 
-#: src/helper/claude-usage.py:348
+#: src/helper/claude-usage.py:369
 msgid "The Claude Code token has expired: open `claude` to renew it"
 msgstr "El token de Claude Code ha caducado: abre `claude` para renovarlo"
 
-#: src/helper/claude-usage.py:367
+#: src/helper/claude-usage.py:388
 msgid "Token rejected (401): open `claude` to renew the session"
 msgstr "Token rechazado (401): abre `claude` para renovar la sesión"
 
-#: src/helper/claude-usage.py:368
+#: src/helper/claude-usage.py:389
 msgid "Not allowed to query usage (403)"
 msgstr "Sin permiso para consultar el uso (403)"
 
-#: src/helper/claude-usage.py:369
+#: src/helper/claude-usage.py:390
 msgid "Too many requests (429): will retry later"
 msgstr "Demasiadas consultas (429): se reintentará más tarde"
 
-#: src/helper/claude-usage.py:370
+#: src/helper/claude-usage.py:391
 msgid "HTTP error {code} querying usage"
 msgstr "Error HTTP {code} consultando el uso"
 
-#: src/helper/claude-usage.py:372
+#: src/helper/claude-usage.py:393
 msgid "Cannot reach api.anthropic.com ({reason})"
 msgstr "Sin conexión con api.anthropic.com ({reason})"
 
-#: src/helper/claude-usage.py:374
+#: src/helper/claude-usage.py:395
 msgid "Invalid response from the usage API"
 msgstr "Respuesta no válida de la API de uso"
 
-#: src/helper/claude-usage.py:393
+#: src/helper/claude-usage.py:414
 msgid "Weekly {model}"
 msgstr "Semanal {model}"
 
-#: src/helper/claude-usage.py:394
+#: src/helper/claude-usage.py:415
 msgid "Session (5 h)"
 msgstr "Sesión (5 h)"
 
-#: src/helper/claude-usage.py:395 src/helper/claude-usage.py:397
+#: src/helper/claude-usage.py:416 src/helper/claude-usage.py:418
 msgid "Weekly"
 msgstr "Semanal"
 
-#: src/helper/claude-usage.py:474
+#: src/helper/claude-usage.py:498
 msgid "API query disabled"
 msgstr "consulta a la API desactivada"
 
-#: src/helper/claude-usage.py:490
+#: src/helper/claude-usage.py:514
 msgid "Error reading the local logs: {error}"
 msgstr "Error leyendo los registros locales: {error}"
 
-#: src/helper/claude-usage.py:510
+#: src/helper/claude-usage.py:534
 msgid "now"
 msgstr "ya"
 
-#: src/helper/claude-usage.py:521
+#: src/helper/claude-usage.py:545
 msgid "Claude — {plan} plan"
 msgstr "Claude — plan {plan}"
 
-#: src/helper/claude-usage.py:523
+#: src/helper/claude-usage.py:547
 msgid "  (saved data)"
 msgstr "  (datos guardados)"
 
-#: src/helper/claude-usage.py:526
+#: src/helper/claude-usage.py:550
 msgid "resets in {when}"
 msgstr "reinicia en {when}"
 
-#: src/helper/claude-usage.py:530
+#: src/helper/claude-usage.py:554
 msgid "req."
 msgstr "pet."
 
-#: src/helper/claude-usage.py:532
+#: src/helper/claude-usage.py:556
 msgid "no usage in this window"
 msgstr "sin uso en esta ventana"
 
-#: src/helper/claude-usage.py:535
+#: src/helper/claude-usage.py:559
 msgid "Extra usage"
 msgstr "Uso extra"
 
-#: src/helper/claude-usage.py:539
+#: src/helper/claude-usage.py:563
 msgid "Local usage (API-equivalent cost, USD)"
 msgstr "Consumo local (coste equivalente a precios de la API, USD)"
 
-#: src/helper/claude-usage.py:540
+#: src/helper/claude-usage.py:564
 msgid "Last hour"
 msgstr "Última hora"
 
-#: src/helper/claude-usage.py:540
+#: src/helper/claude-usage.py:564
 msgid "Yesterday"
 msgstr "Ayer"
 
-#: src/helper/claude-usage.py:544
+#: src/helper/claude-usage.py:568
 msgid "requests"
 msgstr "peticiones"
 
-#: src/helper/claude-usage.py:546
+#: src/helper/claude-usage.py:570
 msgid "By model (30 days): "
 msgstr "Por modelo (30 días): "
 
-#: src/helper/claude-usage.py:549
+#: src/helper/claude-usage.py:573
 msgid "Models with no known price: "
 msgstr "Modelos sin precio conocido: "
 
-#: src/helper/claude-usage.py:555
+#: src/helper/claude-usage.py:579
 msgid "Claude usage and spend (for the GNOME top bar)"
 msgstr "Uso y gasto de Claude (para la barra de GNOME)"
 
-#: src/helper/claude-usage.py:556
+#: src/helper/claude-usage.py:580
 msgid "JSON output (default when not a terminal)"
 msgstr "salida JSON (por defecto si no es una terminal)"
 
-#: src/helper/claude-usage.py:557
+#: src/helper/claude-usage.py:581
 msgid "human-readable summary"
 msgstr "resumen legible"
 
-#: src/helper/claude-usage.py:559
+#: src/helper/claude-usage.py:583
 msgid "seconds to reuse the last API query (default 120)"
 msgstr "segundos que se reutiliza la última consulta a la API (defecto 120)"
 
-#: src/helper/claude-usage.py:560
+#: src/helper/claude-usage.py:584
 msgid "do not query the API, local logs only"
 msgstr "no consultar la API, solo registros locales"
 
-#: src/helper/claude-usage.py:561
+#: src/helper/claude-usage.py:585
 msgid "re-read all logs"
 msgstr "volver a leer todos los registros"
+
+#: src/helper/claude-usage.py:587
+msgid "use only the bundled price table (do not download updates)"
+msgstr "usar solo la tabla de precios incluida (no descargar actualizaciones)"
 
 #: src/prefs.js:11
 msgid "General"
@@ -323,3 +331,19 @@ msgstr "Porcentaje"
 #: src/prefs.js:19
 msgid "5-hour session usage (or today’s cost when plan data is unavailable)"
 msgstr "Uso de la sesión de 5 h (o el gasto de hoy si no hay datos del plan)"
+
+#: src/prefs.js:27
+msgid "Prices"
+msgstr "Precios"
+
+#: src/prefs.js:28
+msgid "Costs are estimated at Claude API list prices"
+msgstr "Los costes se estiman con los precios de lista de la API de Claude"
+
+#: src/prefs.js:31
+msgid "Update price table automatically"
+msgstr "Actualizar la tabla de precios automáticamente"
+
+#: src/prefs.js:32
+msgid "Once a day from the extension’s GitHub repository, which tracks Anthropic’s pricing page. Off: use the bundled table only."
+msgstr "Una vez al día desde el repositorio de GitHub de la extensión, que sigue la página de precios de Anthropic. Desactivado: solo la tabla incluida."

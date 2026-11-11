@@ -1,0 +1,31 @@
+name: Check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Byte-compile helper and tools
+        run: python3 -m py_compile src/helper/claude-usage.py tools/*.py
+      - name: Translations complete
+        run: python3 tools/i18n.py check
+      - name: pricing.json is valid
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          sys.path.insert(0, "tools")
+          from update_pricing import validate
+          p = json.load(open("src/helper/pricing.json"))
+          errors = validate(p)
+          print("\n".join(errors) or f"{len(p['models'])} models OK")
+          sys.exit(1 if errors else 0)
+          PY
+      - name: Helper runs on an empty home
+        run: HOME=$(mktemp -d) python3 -I src/helper/claude-usage.py --json --no-api --no-remote-pricing | python3 -c "import json,sys; d=json.load(sys.stdin); assert d['local'] is not None; print('ok', d['pricing'])"

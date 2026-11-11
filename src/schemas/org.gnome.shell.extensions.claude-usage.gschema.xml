@@ -6,5 +6,10 @@
       <summary>Show the percentage in the top bar</summary>
       <description>Show the 5-hour session usage percentage next to the panel meter.</description>
     </key>
+    <key name="update-prices" type="b">
+      <default>true</default>
+      <summary>Download price table updates</summary>
+      <description>Once a day, fetch the latest pricing.json from the extension's GitHub repository (generated from Anthropic's pricing page). When disabled, only the table bundled with the extension is used.</description>
+    </key>
   </schema>
 </schemalist>

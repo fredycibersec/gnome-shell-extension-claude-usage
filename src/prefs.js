@@ -22,8 +22,20 @@ export default class ClaudeUsagePreferences extends ExtensionPreferences {
         panel.add(pct);
 
         page.add(panel);
+
+        const data = new Adw.PreferencesGroup({
+            title: _('Prices'),
+            description: _('Costs are estimated at Claude API list prices'),
+        });
+        const prices = new Adw.SwitchRow({
+            title: _('Update price table automatically'),
+            subtitle: _('Once a day from the extension’s GitHub repository, which tracks Anthropic’s pricing page. Off: use the bundled table only.'),
+        });
+        settings.bind('update-prices', prices, 'active', Gio.SettingsBindFlags.DEFAULT);
+        data.add(prices);
+        page.add(data);
         window.add(page);
-        window.set_default_size(520, 300);
+        window.set_default_size(560, 440);
         window._settings = settings;
     }
 }

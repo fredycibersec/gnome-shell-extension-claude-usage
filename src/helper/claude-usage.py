@@ -42,36 +42,55 @@ LOG_CACHE_VERSION = 1
 _LOCALE_DIR = Path(__file__).resolve().parent.parent / "locale"
 _ = gettext.translation("claude-usage@fredycibersec", localedir=_LOCALE_DIR, fallback=True).gettext
 
-# Precios en USD por millón de tokens: input, cache write 5m, cache write 1h, cache read, output.
-# Fuente: https://platform.claude.com/docs/en/about-claude/pricing (consultada el 2026-11-11).
-PRICING = {
-    "claude-fable-5-2":   (8.0, 10.0, 16.0, 0.20, 40.0),
-    "claude-mythos-5-2":  (8.0, 10.0, 16.0, 0.20, 40.0),
-    "claude-fable-5-1":   (10.0, 12.5, 20.0, 0.25, 50.0),
-    "claude-mythos-5-1":  (10.0, 12.5, 20.0, 0.25, 50.0),
-    "claude-fable-5":     (10.0, 12.5, 20.0, 1.00, 50.0),
-    "claude-mythos-5":    (10.0, 12.5, 20.0, 1.00, 50.0),
-    "claude-opus-5-5":    (4.0, 5.0, 8.0, 0.20, 20.0),
-    "claude-opus-5":      (5.0, 6.25, 10.0, 0.50, 25.0),
-    "claude-opus-4-8":    (5.0, 6.25, 10.0, 0.50, 25.0),
-    "claude-opus-4-7":    (5.0, 6.25, 10.0, 0.50, 25.0),
-    "claude-opus-4-6":    (5.0, 6.25, 10.0, 0.50, 25.0),
-    "claude-opus-4-5":    (5.0, 6.25, 10.0, 0.50, 25.0),
-    "claude-opus-4-1":    (15.0, 18.75, 30.0, 1.50, 75.0),
-    "claude-opus-4":      (15.0, 18.75, 30.0, 1.50, 75.0),
-    "claude-sonnet-5-5":  (2.0, 2.5, 4.0, 0.10, 10.0),
-    "claude-sonnet-5":    (2.0, 2.5, 4.0, 0.20, 10.0),
-    "claude-sonnet-4-6":  (3.0, 3.75, 6.0, 0.30, 15.0),
-    "claude-sonnet-4-5":  (3.0, 3.75, 6.0, 0.30, 15.0),
-    "claude-sonnet-4":    (3.0, 3.75, 6.0, 0.30, 15.0),
-    "claude-haiku-5-5":   (0.10, 0.125, 0.20, 0.01, 0.50),
-    "claude-haiku-4-5":   (1.0, 1.25, 2.0, 0.10, 5.0),
-}
-# Claude Haiku 5.5 cobra más si el prompt (input + caché) supera 100.000 tokens
-HAIKU_55_LONG = (0.50, 0.625, 1.0, 0.05, 2.50)
-FAST_MULTIPLIER = 2.0          # fast mode: el doble en todos los conceptos
-US_GEO_MULTIPLIER = 1.1        # inference_geo = "us"
-WEB_SEARCH_USD = 10.0 / 1000   # por búsqueda
+# Prices (USD per million tokens) live in pricing.json, generated from Anthropic's pricing page by
+# tools/update_pricing.py and refreshed weekly in the repository. The helper uses the latest copy
+# from the repository (downloaded at most once a day) and falls back to the bundled file.
+BUNDLED_PRICING = Path(__file__).resolve().parent / "pricing.json"
+PRICING_CACHE = CACHE_DIR / "pricing.json"
+PRICING_URL = ("https://raw.githubusercontent.com/fredycibersec/gnome-shell-extension-claude-usage/"
+               "main/src/helper/pricing.json")
+PRICING_MAX_AGE = 86400
+PRICE_COLUMNS = ("input", "cache_write_5m", "cache_write_1h", "cache_read", "output")
+
+
+def valid_pricing(p):
+    try:
+        return len(p["models"]) >= 5 and all(
+            all(0 < float(pr[c]) < 1000 for c in PRICE_COLUMNS) for pr in p["models"].values())
+    except (KeyError, TypeError, ValueError, AttributeError):
+        return False
+
+
+def load_pricing(remote=True):
+    """Returns (pricing dict, origin) — origin is "remote", "cache" or "bundled"."""
+    bundled = load_json(BUNDLED_PRICING, {})
+    cached = load_json(PRICING_CACHE, {})
+    # A copy older than the bundled file is never preferred (e.g. after updating the extension)
+    if not valid_pricing(cached) or cached.get("updated", "") < bundled.get("updated", ""):
+        cached = {}
+    stamp = PRICING_CACHE.with_suffix(".checked")      # last download attempt, ok or not
+    try:
+        due = time.time() - stamp.stat().st_mtime > PRICING_MAX_AGE
+    except OSError:
+        due = True
+    if remote and due:
+        try:
+            CACHE_DIR.mkdir(parents=True, exist_ok=True)
+            stamp.touch()
+            req = urllib.request.Request(PRICING_URL, headers={"User-Agent": USER_AGENT})
+            with urllib.request.urlopen(req, timeout=10) as r:
+                data = json.load(r)
+            if valid_pricing(data) and data.get("updated", "") >= bundled.get("updated", ""):
+                atomic_write_json(PRICING_CACHE, data)
+                return data, "remote"
+        except (urllib.error.URLError, TimeoutError, OSError, ValueError):
+            pass
+    if cached:
+        return cached, "cache"
+    return bundled, "bundled"
+
+
+PRICING, PRICING_ORIGIN = {}, "bundled"
 
 PRETTY_MODEL = {
     "fable": "Fable", "mythos": "Mythos", "opus": "Opus", "sonnet": "Sonnet", "haiku": "Haiku",
@@ -238,18 +257,20 @@ def scan_logs(rescan=False):
 
 def entry_cost(e):
     _, model, inp, w5m, w1h, cr, out, fast, geo, web, _ = e
-    price = PRICING.get(model)
+    price = PRICING.get("models", {}).get(model)
     if price is None:
         return None
-    if model == "claude-haiku-5-5" and inp + w5m + w1h + cr > 100_000:
-        price = HAIKU_55_LONG
-    pi, p5, p1, pr, po = price
-    cost = (inp * pi + w5m * p5 + w1h * p1 + cr * pr + out * po) / 1_000_000
-    if fast:
-        cost *= FAST_MULTIPLIER
+    long = PRICING.get("long_context", {}).get(model)
+    if long and inp + w5m + w1h + cr > long["threshold"]:
+        price = long
+    cost = (inp * price["input"] + w5m * price["cache_write_5m"] + w1h * price["cache_write_1h"]
+            + cr * price["cache_read"] + out * price["output"]) / 1_000_000
+    if fast:     # fast mode multiplies every category (caching multipliers stack on top)
+        f = PRICING.get("fast", {}).get(model)
+        cost *= f["input"] / price["input"] if f and not long else 2.0
     if geo:
-        cost *= US_GEO_MULTIPLIER
-    return cost + web * WEB_SEARCH_USD
+        cost *= PRICING.get("us_geo_multiplier", 1.1)
+    return cost + web * PRICING.get("web_search_per_request", 0.01)
 
 
 def aggregate(entries, days=30):
@@ -469,7 +490,10 @@ def attach_window_models(limits, entries):
 
 
 def collect(args):
-    out = {"generated_at": time.time(), "version": 1, "errors": []}
+    global PRICING, PRICING_ORIGIN
+    PRICING, PRICING_ORIGIN = load_pricing(remote=not args.no_remote_pricing)
+    out = {"generated_at": time.time(), "version": 1, "errors": [],
+           "pricing": {"updated": PRICING.get("updated"), "origin": PRICING_ORIGIN}}
     if args.no_api:
         usage = {"data": None, "plan": {}, "stale": True, "error": _("API query disabled")}
     else:
@@ -559,6 +583,8 @@ def main():
                     help=_("seconds to reuse the last API query (default 120)"))
     ap.add_argument("--no-api", action="store_true", help=_("do not query the API, local logs only"))
     ap.add_argument("--rescan", action="store_true", help=_("re-read all logs"))
+    ap.add_argument("--no-remote-pricing", action="store_true",
+                    help=_("use only the bundled price table (do not download updates)"))
     args = ap.parse_args()
     o = collect(args)
     if args.summary or (not args.json and sys.stdout.isatty()):
